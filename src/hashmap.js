@@ -1,4 +1,6 @@
 function createHashMap() {
+    let buckets = Array.from(Array(16));
+
     const hash = (key) => {
         let hashCode = 0;
 
@@ -8,5 +10,17 @@ function createHashMap() {
         }
 
         return hashCode;
-    }; 
+    };
+
+    const set = (key, value) => {
+        const hashKey = hash(key);
+
+        const indexKey = hashKey % buckets.length;
+        buckets[indexKey] = value;
+        console.log("Saved!")
+    };
+
+    return {set}
 }
+
+module.exports = {createHashMap};
