@@ -1,0 +1,22 @@
+{
+  "name": "project-hash-map",
+  "version": "1.0.0",
+  "description": "This is an implementation of hashmap",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/RahmatAT11/project-hash-map.git"
+  },
+  "keywords": [
+    "hashmap"
+  ],
+  "author": "Rahmat Alrafi Trikada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RahmatAT11/project-hash-map/issues"
+  },
+  "homepage": "https://github.com/RahmatAT11/project-hash-map#readme"
+}
