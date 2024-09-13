@@ -1,4 +1,4 @@
-const HashMapModule = require('./hashmap');
+const HashMapModule = require('./src/hashmap');
 
 const hashmap = HashMapModule.createHashMap();
 hashmap.set("awjdawj", 10);
