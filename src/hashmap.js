@@ -49,15 +49,39 @@ function createHashMap() {
         
         if (!buckets[indexKey]) {
             const linkedlist = LinkedListsModule.createLinkedList();
+            const newObj = {};
+            newObj[key] = value
 
-            linkedlist.append(value);
+            linkedlist.append(newObj);
             buckets[indexKey] = linkedlist;
         } else {
-            buckets[indexKey].append(value);
+            const newObj = {};
+            newObj[key] = value
+            buckets[indexKey].append(newObj);
         }
     };
 
-    return {set}
+    const get = (key) => {
+        const hashKey = hash(key);
+        const indexKey = hashKey % buckets.length;
+
+        if (!buckets[indexKey]) {
+            return null;
+        }
+
+        let returnValue = 0;
+
+        for (let i = 0; i < buckets[indexKey].getSize(); i++) {
+            if (buckets[indexKey].at(i).value.hasOwnProperty(key)) {
+                returnValue = buckets[indexKey].at(i).value[key];
+                break;
+            }
+        }
+
+        return returnValue;
+    }
+
+    return {set, get}
 }
 
 module.exports = {createHashMap};
