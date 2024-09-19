@@ -77,7 +77,7 @@ function createHashMap() {
             return null;
         }
 
-        let returnValue = 0;
+        let returnValue = null;
 
         for (let i = 0; i < buckets[indexKey].getSize(); i++) {
             if (buckets[indexKey].at(i).value.hasOwnProperty(key)) {
@@ -104,9 +104,27 @@ function createHashMap() {
         }
 
         return false;
+    };
+
+    const remove = (key) => {
+        const hashKey = hash(key);
+        const indexKey = hashKey % buckets.length;
+
+        if (!buckets[indexKey]) {
+            return false;
+        }
+
+        for (let i = 0; i < buckets[indexKey].getSize(); i++) {
+            if (buckets[indexKey].at(i).value.hasOwnProperty(key)) {
+                buckets[indexKey].removeAt(i);
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    return {set, get, has}
+    return {set, get, has, remove}
 }
 
 module.exports = {createHashMap};
