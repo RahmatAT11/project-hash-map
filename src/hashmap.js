@@ -15,9 +15,37 @@ function createHashMap() {
         return hashCode;
     };
 
+    const isFilled = () => {
+        let count = 0;
+        
+        for (let i = 0; i < buckets.length; i++) {
+            if (buckets[i]) {
+                count++;
+            }
+        }
+
+        if (count >= buckets.length * LOAD_FACTOR) {
+            return true;
+        }
+
+        return false;
+    }
+
     const set = (key, value) => {
         const hashKey = hash(key);
         const indexKey = hashKey % buckets.length;
+
+        if (isFilled()) {
+            const newLength = Math.floor(buckets.length * 1.5);
+            const newBucket = Array.from(Array(newLength));
+            for (let i = 0; i < buckets.length; i++) {
+                newBucket[i] = buckets[i];
+            }
+
+            buckets = newBucket;
+
+            console.log("New bucket length is: ", newLength)
+        }
         
         if (!buckets[indexKey]) {
             const linkedlist = LinkedListsModule.createLinkedList();
@@ -25,8 +53,6 @@ function createHashMap() {
             linkedlist.append(value);
             buckets[indexKey] = linkedlist;
         }
-
-        console.log(buckets[indexKey].toString());
     };
 
     return {set}
