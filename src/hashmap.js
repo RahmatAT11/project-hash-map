@@ -1,7 +1,7 @@
 const LinkedListsModule = require("@terika/linked-lists");
 
 function createHashMap() {
-    const LOAD_FACTOR = 0.8;
+    const LOAD_FACTOR = 0.75;
     let buckets = Array.from(Array(16));
 
     const hash = (key) => {
@@ -57,6 +57,14 @@ function createHashMap() {
         } else {
             const newObj = {};
             newObj[key] = value
+
+            for (let i = 0; i < buckets[indexKey].getSize(); i++) {
+                if (buckets[indexKey].at(i).value[key]) {
+                    buckets[indexKey].at(i).value[key] = value;
+                    return;
+                }
+            }
+            
             buckets[indexKey].append(newObj);
         }
     };
