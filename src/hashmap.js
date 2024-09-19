@@ -52,6 +52,8 @@ function createHashMap() {
 
             linkedlist.append(value);
             buckets[indexKey] = linkedlist;
+        } else {
+            buckets[indexKey].append(value);
         }
     };
 
