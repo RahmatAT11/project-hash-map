@@ -79,9 +79,26 @@ function createHashMap() {
         }
 
         return returnValue;
+    };
+
+    const has = (key) => {
+        const hashKey = hash(key);
+        const indexKey = hashKey % buckets.length;
+
+        if (!buckets[indexKey]) {
+            return false;
+        }
+
+        for (let i = 0; i < buckets[indexKey].getSize(); i++) {
+            if (buckets[indexKey].at(i).value.hasOwnProperty(key)) {
+                return true
+            }
+        }
+
+        return false;
     }
 
-    return {set, get}
+    return {set, get, has}
 }
 
 module.exports = {createHashMap};
