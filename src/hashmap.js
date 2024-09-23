@@ -43,8 +43,6 @@ function createHashMap() {
       }
 
       buckets = newBucket;
-
-      console.log("New bucket length is: ", newLength);
     }
 
     if (!buckets[indexKey]) {
