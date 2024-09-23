@@ -157,7 +157,22 @@ function createHashMap() {
     return arrayOfKeys;
   };
 
-  return { set, get, has, remove, length, clear, keys };
+  const values = () => {
+    const arrayOfValues = [];
+    for (let i = 0; i < buckets.length; i++) {
+      const linkedList = buckets[i];
+
+      if (linkedList) {
+        for (let j = 0; j < linkedList.getSize(); j++) {
+          arrayOfValues.push(linkedList.at(j).value[1])
+        }
+      }
+    }
+
+    return arrayOfValues;
+  };
+
+  return { set, get, has, remove, length, clear, keys, values };
 }
 
 module.exports = { createHashMap };
