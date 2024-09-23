@@ -124,7 +124,19 @@ function createHashMap() {
         return false;
     }
 
-    return {set, get, has, remove}
+    const length = () => {
+        let count = 0;
+        
+        for (let i = 0; i < buckets.length; i++) {
+            if (buckets[i]) {
+                count++;                
+            }
+        }
+
+        return count;
+    }
+
+    return {set, get, has, remove, length}
 }
 
 module.exports = {createHashMap};
