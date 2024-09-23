@@ -1,5 +1,5 @@
 {
-  "name": "project-hash-map",
+  "name": "@terika/hash-map",
   "version": "1.0.0",
   "description": "This is an implementation of hashmap",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "keywords": [
     "hashmap"
   ],
-  "author": "Rahmat Alrafi Trikada",
+  "author": "terika",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RahmatAT11/project-hash-map/issues"
