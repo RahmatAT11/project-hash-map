@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/RahmatAT11/project-hash-map#readme",
   "dependencies": {
-    "@terika/linked-lists": "^1.0.0"
+    "@terika/linked-lists": "^1.0.2"
   }
 }
