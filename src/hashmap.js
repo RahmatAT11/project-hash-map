@@ -59,11 +59,8 @@ function createHashMap() {
       const newArr = [];
       newArr.push(key);
       newArr.push(value);
-      console.log(newArr.toString());
-      console.log(buckets[indexKey].toString());
 
       for (let i = 0; i < buckets[indexKey].getSize(); i++) {
-        console.log(i)
         if (buckets[indexKey].at(i).value[0] === key) {
           buckets[indexKey].at(i).value[1] = value;
           return;
