@@ -136,7 +136,11 @@ function createHashMap() {
         return count;
     }
 
-    return {set, get, has, remove, length}
+    const clear = () => {
+        buckets = Array.from(Array(buckets.length));
+    }
+
+    return {set, get, has, remove, length, clear}
 }
 
 module.exports = {createHashMap};
